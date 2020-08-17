@@ -1,0 +1,27 @@
+<app-slider [windowWidth]="windowWidth"></app-slider>
+<div class="introduce">
+  <div class="introduce__item" *ngFor="let introduce of introduces">
+    <div class="introduce__image-container">
+      <img class="introduce__image" [src]="'./assets/images/'+introduce.img">
+    </div>
+    <div class="introduce__title">
+      {{introduce.title}}
+    </div>
+    <div class="introduce__text" [innerHTML]="introduce.text"></div>
+  </div>
+</div>
+<hr>
+<div class="heightlight" [class.mobile]="windowWidth<768">
+  <div class="heightlight__item" *ngFor="let heightlight of heightlights">
+    <div class="heightlight__image-container">
+      <img class="heightlight__image"
+        [src]="'./assets/images/heightlight-'+ (windowWidth<768?'mobile':'desktop') +'-'+heightlight.id+'.png'">
+      <div class="heightlight__info">
+        <div class="heightlight__title">
+          {{heightlight.title}}
+        </div>
+        <div class="heightlight__text" [innerHTML]="heightlight.text"></div>
+      </div>
+    </div>
+  </div>
+</div>

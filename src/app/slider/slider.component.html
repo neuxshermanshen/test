@@ -1,0 +1,12 @@
+<carousel [class.desktop]="windowWidth>=768">
+  <slide *ngFor="let data of datas;" class="mx-auto">
+    <div class="img-container" [style.height.px]="windowWidth/2.5">
+      <img [src]="'assets/images/'+data.img">
+    </div>
+    <div class="carousel-caption">
+      <h1>Trusted wine delivery</h1>
+      <p>with temperature controlled wine delivery truc</p>
+      <button>SEE MORE</button>
+    </div>
+  </slide>
+</carousel>

@@ -1,0 +1,54 @@
+<div class="header-container" [class.is-mobile]="isMobile">
+  <ng-container *ngIf="!isMobile">
+    <div>
+      <div class="block-left">
+        <span class="font-weight-bold">TEL</span> (852) 2739 7678
+        <br>
+        <span class="font-weight-bold">EMAIL</span> enquiries@pontiwinecellars.com
+      </div>
+      <div class="block-center">
+        <div *ngIf="isScrollTop">
+          <img src="./assets/images/ponti-wine-cellars-logo-1589532960.jpg.png">
+        </div>
+        <div *ngIf="!isScrollTop">
+          <span class="desktop-navigation" *ngFor="let n of navigations">{{n}}</span>
+        </div>
+      </div>
+      <div class="block-right">
+        <span>Login | Register</span>
+        <span class="fas fa-search"></span>
+        <span class="fas fa-shopping-cart"></span>
+      </div>
+    </div>
+    <div *ngIf="isScrollTop" style="padding: 10px;">
+      <span class="desktop-navigation" *ngFor="let n of navigations">{{n}}</span>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isMobile">
+    <div style="height: 60px;">
+      <div class="block-left" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+          aria-controls="dropdown-basic"><i class="fas fa-bars"></i></button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item" href="#">LOG IN / REGISTER</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#" *ngFor="let n of navigations">{{n}}</a></li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">PRIVACY & POLICY</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">TERMS OF USE</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">COOKIES POLICY</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">FAQ</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">SEARCH</a></li>
+          <span class="close-menu">X</span>
+        </ul>
+      </div>
+      <div class="block-center">
+        <img src="./assets/images/ponti_wine_cellars-logo BLACK.png" style="height: 100%; width: auto;">
+      </div>
+      <div class="block-right">
+        <span class="fas fa-shopping-cart"></span>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

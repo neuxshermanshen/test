@@ -1,0 +1,71 @@
+<div [class.mobile]="windowWidth<768">
+  <div class="item-block-container">
+    <div class="title">{{title}}</div>
+    <div class="btn-group">
+      <button (click)="index=index-1" [disabled]="!data?.length||index<=0"><</button>
+      <button (click)="index=index+1" [disabled]="!data?.length||isMobile?index>=data?.length-1:(index>=(data?.length%4===0?data?.length/4-1:data?.length/4))">></button>
+    </div>
+  </div>
+  <div class="items d-flex justify-content-center">
+    <div class="item flex-fill" *ngFor="let wine of getCurrentData(); index as i">
+      <div class="item-info">
+        <div class="is-on-sale" *ngIf="wine.salePrice">SALE</div>
+        <div class="info-container">
+          <div class="name">{{wine.name}}</div>
+          <div class="detail">{{wine.detail}}</div>
+          <div class="year">{{wine.year}}</div>
+          <div class="sub-info">
+            <div class="d-flex">
+              <div class="sub-info-item">
+                <div class="sub-info-title">AM</div>
+                <div class="sub-info-value">{{wine.am}}</div>
+              </div>
+              <div class="sub-info-item">
+                <div class="sub-info-title">WS</div>
+                <div class="sub-info-value">{{wine.ws}}</div>
+              </div>
+              <div class="sub-info-item">
+                <div class="sub-info-title">WA</div>
+                <div class="sub-info-value">{{wine.wa}}</div>
+              </div>
+            </div>
+            <div class="sub-info-info" *ngIf="isMobile">
+              <div>
+                <div class="sub-info-info-title">Vintage:</div>
+                <div class="sub-info-info-value">{{wine.vintage}}</div>
+              </div>
+              <div>
+                <div class="sub-info-info-title">Country:</div>
+                <div class="sub-info-info-value">{{wine.country}}</div>
+              </div>
+              <div>
+                <div class="sub-info-info-title">Region:</div>
+                <div class="sub-info-info-value">{{wine.Region}}</div>
+              </div>
+              <div>
+                <div class="sub-info-info-title">Size:</div>
+                <div class="sub-info-info-value">{{wine.size}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="price-info">
+            <div class="out-of-stock" [class.none]="wine.stock">OUT OF STOCK</div>
+            <div class="sale-price" [class.none]="!wine.salePrice">HK${{wine.salePrice}}.00</div>
+            <div class="price" [class.line-through]="wine.salePrice">HK${{wine.price}}.00</div>
+          </div>
+        </div>
+        <div class="img-container">
+          <img [src]="'./assets/images/'+wine.img">
+        </div>
+      </div>
+      <div class="item-action">
+        <div class="count">
+          <div class="count-btn">-</div>
+          <div class="count-value">1</div>
+          <div class="count-btn">+</div>
+        </div>
+        <div class="add-to-cart">Add to cart</div>
+      </div>
+    </div>
+  </div>
+</div>
